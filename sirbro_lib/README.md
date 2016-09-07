@@ -1,2 +1,2 @@
-# xaas-broker-lib
+# sirbro-lib
 Library for XaaService Broker 

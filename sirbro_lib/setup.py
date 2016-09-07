@@ -2,7 +2,7 @@
 
 import os
 from setuptools import setup
-from xaas-broker-lib import __projname__, __projver__, __projdesc__
+from sirbro_lib import __projname__, __projver__, __projdesc__
 
 
 # Utility function to read the README file.
@@ -29,8 +29,8 @@ setup(
     description = (__projdesc__),
     license = "GPLv3",
     keywords = "xaas broker service api lib",
-    url = "http://packages.python.org/xaas-broker-lib",
-    packages=['xaas-broker-lib', 'tests'],
+    url = "http://packages.python.org/sirbro_lib",
+    packages=['sirbro_lib', 'tests'],
     long_description=read('README.md'),
     classifiers=[
         "Development Status :: 3 - Alpha",
@@ -39,5 +39,5 @@ setup(
         "License :: OSI Approved :: Apache Software License",
         "Programming Language :: Python",
     ],
-    test_suite = "xaas-broker-lib.tests.test_all",
+    test_suite = "sirbro_lib.tests.test_all",
 )
