@@ -1,2 +1,2 @@
 # sirbro-lib
-Library for XaaService Broker 
+Library for a XaaS(ervice) 
