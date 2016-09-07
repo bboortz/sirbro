@@ -1,2 +1,2 @@
-# xaas-broker
-A generic XaaService Broker 
+# sirbro
+A generic XaaS(ervice) Broker 
