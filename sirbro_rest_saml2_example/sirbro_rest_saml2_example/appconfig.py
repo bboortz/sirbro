@@ -1,12 +1,8 @@
-import os, platform
 
+from sirbro_lib.appconfig import DefaultAppConfig
 from sirbro_rest_saml2_example.flaskconfig import FlaskConfig
 
-class AppConfig(object):
-    ENV = "PROD"
-    IP = os.getenv('IP', '0.0.0.0')
-    PORT = int( os.getenv('PORT', 8080) )
-    PYTHONVERSION = platform.python_version()
+class AppConfig(DefaultAppConfig):
     FLASKCONFIG = FlaskConfig
     
     def config_to_json(self):

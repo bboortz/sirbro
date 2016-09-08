@@ -1,4 +1,3 @@
-import os
 
 from sirbro_rest_saml2_example import __projname__, __projver__, __projdesc__, __apiversions__
 from sirbro_rest_saml2_example.appconfig import AppConfig

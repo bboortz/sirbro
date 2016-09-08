@@ -2,8 +2,6 @@ import os
 
 from sirbro_lib.flaskconfig import DefaultFlaskConfig
 
-from flask import __version__ as FLASK_VERSION
-
 
 
 class FlaskConfig(DefaultFlaskConfig):
