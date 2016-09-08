@@ -1,11 +1,9 @@
-#from lib.appconfig import *
 from flask import Blueprint
 from flask import jsonify, make_response
 
 
 
-appconfig = AppConfig.create_instance()
-blueprint = Blueprint('base', __name__, template_folder='templates')
+blueprint = Blueprint('base', __name__)
 
 
 

@@ -1,7 +1,8 @@
 import os
 
-from sirbro_rest_saml2_example import __projname__, __projver__
-from sirbro_rest_saml2_example.appconfig import *
+from sirbro_rest_saml2_example import __projname__, __projver__, __projdesc__, __apiversions__
+from sirbro_rest_saml2_example.appconfig import AppConfig
+#from sirbro_rest_saml2_example.app import app
 from sirbro_lib.flaskhelper import *
 
 from flask import Blueprint
@@ -10,41 +11,49 @@ from flask import url_for
 
 
 
-appconfig = AppConfig.create_instance()
-blueprint = Blueprint('api', __name__, template_folder='templates')
+appconfig = AppConfig()
+blueprint = Blueprint('apiv1', __name__)
 
 
 
 
 
-@blueprint.route('/api/v1/alive', methods=['GET'])
+@blueprint.route('alive', methods=['GET'])
 @crossdomain(origin='*')
-def alive():
+def get_alive():
     return jsonify( { 'alive': 'true' } )
 
-@blueprint.route('/api/v1/info', methods=['GET'])
+@blueprint.route('info', methods=['GET'])
 @crossdomain(origin='*')
-def alive():
-    return jsonify( { 'project-name': __projname__, 'project-version': __projver__ } )
+def get_info():
+    return jsonify( { 
+        'project-name': __projname__, 
+        'project-version': __projver__,
+        'project-description': __projdesc__,
+        'api-versions': __apiversions__ 
+        } )
 
-@blueprint.route('/api/v1/config', methods=['GET'])
+@blueprint.route('config', methods=['GET'])
 @crossdomain(origin='*')
-def api_get_config():
+def get_config():
     return jsonify( appconfig.config_to_json() )
 
 
-@blueprint.route('/api/v1/resource', methods=['GET'])
+#@blueprint.route('sitemap', methods=['GET'])
+#@crossdomain(origin='*')
+#def get_sitemap():
+#    """Print the sitemap."""
+#    func_list = {}
+#    for rule in get_app().url_map.iter_rules():
+#        if rule.endpoint != 'static':
+#            func_list[rule.rule] = app.view_functions[rule.endpoint].__doc__
+#    return jsonify(func_list)
+
+
+
+@blueprint.route('resource', methods=['POST'])
 @crossdomain(origin='*')
-def api():
-    return jsonify( appconfig.api_to_json() )
-
-
-
-
-        
-@blueprint.route('/api/v1/resource', methods=['POST'])
-@crossdomain(origin='*')
-def api_post_file():
+def post_resource():
     global db_id
     item = { "%s" % db_id:  None }
     #form = UploadForm()
