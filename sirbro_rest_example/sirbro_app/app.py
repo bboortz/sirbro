@@ -16,6 +16,10 @@ from flask import Flask
 LOGGER = getLogger('app')
 appconfig = AppConfig
 app = Flask(__name__)
+app.config.from_object(appconfig.FLASKCONFIG)
+app.register_blueprint(blueprint_base)
+app.register_blueprint(blueprint_apiv1, url_prefix="/api/v1/")
+app.register_blueprint(blueprint_apiv1, url_prefix="/api/")
 
 
 
@@ -27,9 +31,6 @@ def run_app():
     LOGGER.debug("using %s %s." % (__libname__, __libver__) )
     LOGGER.info("listening on PORT 8080.")
 
-    app.config.from_object(appconfig.FLASKCONFIG)
-    app.register_blueprint(blueprint_base)
-    app.register_blueprint(blueprint_apiv1, url_prefix="/api/v1/")
     app.run(host=appconfig.IP, port=appconfig.PORT, threaded=True)
 
     LOGGER.info("%s %s stopped." % (__projname__, __projver__) )
