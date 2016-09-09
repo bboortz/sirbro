@@ -16,7 +16,6 @@ from flask import Flask
 LOGGER = getLogger('app')
 appconfig = AppConfig
 app = Flask(__name__)
-lala="huh"
 
 
 
