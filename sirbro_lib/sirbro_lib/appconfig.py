@@ -6,6 +6,7 @@ from sirbro_lib.flaskconfig import DefaultFlaskConfig
 
 class DefaultBaseConfig(object):
     ENV = os.getenv('ENV', 'PROD')
+    ENCODING = "utf-8"
     PYTHONVERSION = platform.python_version()
     
     def config_to_json(self):
