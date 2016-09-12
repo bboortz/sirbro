@@ -2,14 +2,15 @@
 from sirbro_app import __projname__, __projver__, __projdesc__, __apiversions__
 from sirbro_app.appconfig import AppConfig
 from sirbro_lib.flaskhelper import *
+from sirbro_lib.json import *
 
 from flask import Blueprint
 from flask import jsonify, make_response, request, abort
 from flask import url_for
 
 appconfig = AppConfig()
+jsonUtil = jsonUtil()
 blueprint = Blueprint('apiv1', __name__)
-
 
 
 
@@ -32,7 +33,7 @@ def get_info():
 @blueprint.route('config', methods=['GET'])
 @crossdomain(origin='*')
 def get_config():
-    return jsonify( appconfig.config_to_json() )
+    return jsonify( jsonUtil.props(appconfig) )
 
 
 

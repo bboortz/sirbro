@@ -16,7 +16,7 @@ from flask import Flask
 LOGGER = getLogger('app')
 appconfig = AppConfig
 app = Flask(__name__)
-app.config.from_object(appconfig.FLASKCONFIG)
+app.config.from_object(appconfig.__FLASKCONFIG__)
 app.register_blueprint(blueprint_base)
 app.register_blueprint(blueprint_apiv1, url_prefix="/api/v1/")
 app.register_blueprint(blueprint_apiv1, url_prefix="/api/")

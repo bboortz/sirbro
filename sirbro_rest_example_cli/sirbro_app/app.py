@@ -18,8 +18,14 @@ client = Client()
 #
 # * run the app
 #
+def api_get_alive():
+    result = client.get_alive()
+    print( result )
+
 def api_get_info():
     result = client.get_info()
     print( result )
 
-
+def api_get_config():
+    result = client.get_config()
+    print( result )
